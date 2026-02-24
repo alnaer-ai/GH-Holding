@@ -5,12 +5,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (menuToggle && mainNav) {
         menuToggle.addEventListener('click', () => {
-            mainNav.classList.toggle('active');
-            menuToggle.classList.toggle('active'); // Optional for hamburger animation
+            const isActive = mainNav.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+            document.body.classList.toggle('menu-open');
 
             // Accessibility
-            const isExpanded = mainNav.classList.contains('active');
-            menuToggle.setAttribute('aria-expanded', isExpanded);
+            menuToggle.setAttribute('aria-expanded', isActive);
+        });
+
+        // Close menu when clicking a link (especially for hash links on same page)
+        const navLinks = mainNav.querySelectorAll('a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (mainNav.classList.contains('active')) {
+                    mainNav.classList.remove('active');
+                    menuToggle.classList.remove('active');
+                    document.body.classList.remove('menu-open');
+                }
+            });
         });
     }
 
