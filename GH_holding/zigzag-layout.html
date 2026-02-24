@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vertical Zig-Zag Layout - GH Holding</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --glass-bg: rgba(0, 0, 0, 0.7);
+            --glass-blur: 15px;
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --text-color: #ffffff;
+            --accent-color: #bd9951;
+            /* GH Holding Gold/Accent */
+            --spacing-large: 5%;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            background-color: #111;
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 1.5rem;
+        }
+
+        .zigzag-container {
+            width: 100%;
+        }
+
+        .zigzag-section {
+            height: 100vh;
+            width: 100%;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            /* Parallax effect */
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding: 0 var(--spacing-large);
+        }
+
+        /* Overlay to ensure readability */
+        .zigzag-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: 1;
+        }
+
+        .glass-box {
+            position: relative;
+            z-index: 2;
+            max-width: 600px;
+            padding: 3.5rem;
+            background: var(--glass-bg);
+            backdrop-filter: blur(var(--glass-blur));
+            -webkit-backdrop-filter: blur(var(--glass-blur));
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .glass-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+        }
+
+        .glass-box h2 {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        .glass-box p {
+            font-size: 1.1rem;
+            font-weight: 300;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        .btn-premium {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--accent-color);
+            color: #000;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+
+        .btn-premium:hover {
+            background: #fff;
+            transform: scale(1.05);
+        }
+
+        /* Alternating Layout */
+        /* Odd sections (1, 3, 5...): Content on the RIGHT */
+        .zigzag-section:nth-child(odd) {
+            justify-content: flex-end;
+        }
+
+        /* Even sections (2, 4, 6...): Content on the LEFT */
+        .zigzag-section:nth-child(even) {
+            justify-content: flex-start;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .glass-box {
+                max-width: 500px;
+                padding: 2.5rem;
+            }
+
+            .glass-box h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .zigzag-section {
+                padding: 2rem;
+                justify-content: center !important;
+                /* Center on mobile */
+                background-attachment: scroll;
+                /* Disable parallax on mobile for performance */
+            }
+
+            .glass-box {
+                max-width: 100%;
+                text-align: center;
+                padding: 2rem 1.5rem;
+            }
+
+            .glass-box h2 {
+                font-size: 1.8rem;
+            }
+
+            .glass-box p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="zigzag-container">
+        <!-- Section 1: Elite Sport (Right Side) -->
+        <section class="zigzag-section" style="background-image: url('assets/Elite/elite sport background.webp');">
+            <div class="glass-box">
+                <h2>Elite Sport</h2>
+                <p>Experience the pinnacle of luxury lifestyle and wellness access across the UAE. From exclusive beach
+                    clubs to state-of-the-art fitness centers, Elite Sport elevates your daily routine into a curated
+                    experience of excellence.</p>
+                <a href="elite-sport.html" class="btn-premium">Explore More</a>
+            </div>
+        </section>
+
+        <!-- Section 2: 90 Construction (Left Side) -->
+        <section class="zigzag-section" style="background-image: url('assets/90/interior-service-background.jpg');">
+            <div class="glass-box">
+                <h2>Elite Construction</h2>
+                <p>Building the future with precision and artistic vision. Our construction and real estate division
+                    specializes in creating landmarks that redefine modern living and commercial spaces with
+                    unparalleled quality.</p>
+                <a href="general-contracting.html" class="btn-premium">View Projects</a>
+            </div>
+        </section>
+
+        <!-- Section 3: White Radish (Right Side) -->
+        <section class="zigzag-section" style="background-image: url('assets/WR/white-radish-background.png');">
+            <div class="glass-box">
+                <h2>White Radish</h2>
+                <p>A culinary journey that celebrates organic ingredients and gourmet craftsmanship. We believe in
+                    nourishing the body and soul through innovative gastronomy and sustainable practices.</p>
+                <a href="white-radish.html" class="btn-premium">Discover Flavor</a>
+            </div>
+        </section>
+
+        <!-- Section 4: Workout Gym (Left Side) -->
+        <section class="zigzag-section" style="background-image: url('assets/Workout/workout-gym-background.png');">
+            <div class="glass-box">
+                <h2>Workout Gym</h2>
+                <p>Find your strength in environments designed to inspire. Our workout facilities offer world-class
+                    equipment and professional guidance to help you reach your peak performance.</p>
+                <a href="workout-gym.html" class="btn-premium">Start Training</a>
+            </div>
+        </section>
+    </div>
+
+</body>
+
+</html>
