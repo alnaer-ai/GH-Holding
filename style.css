@@ -869,6 +869,10 @@ img {
     padding-top: var(--spacing-md);
 }
 
+#education-card .company-logo {
+    width: 240px;
+}
+
 .education-bg {
     background: transparent;
 }
@@ -1523,6 +1527,10 @@ img {
 
     .company-logo {
         width: 100px !important;
+    }
+
+    #education-card .company-logo {
+        width: 200px !important;
     }
 
     .values-grid {
