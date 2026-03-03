@@ -1423,6 +1423,10 @@ img {
         padding: 5px 0;
     }
 
+    .main-nav a::after {
+        display: none !important;
+    }
+
     .main-nav .btn-primary {
         margin-top: 1rem;
         text-align: center;
@@ -1586,9 +1590,9 @@ img {
         box-shadow: none;
         min-width: 100%;
         display: none;
-        padding: 0.5rem 0 0.5rem 1.5rem;
+        padding: 0.5rem 0 0.5rem 1rem;
         background-color: transparent;
-        border-left: 2px solid var(--color-accent);
+        border-left: none;
         margin-top: 0.5rem;
     }
 
