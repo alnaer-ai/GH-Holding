@@ -201,9 +201,7 @@ img {
    3. HEADER
    ========================================= */
 .site-header {
-    background-color: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
+    background-color: #ffffff;
     position: fixed;
     width: 100%;
     top: 0;
@@ -211,12 +209,11 @@ img {
     padding: 10px 0;
     /* Consistent small size */
     transition: all 0.3s ease;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid #f0f0f0;
 }
 
 .site-header.scrolled {
-    background-color: rgba(255, 255, 255, 0.9);
-    box-shadow: 0 4px 12px rgba(0, 33, 71, 0.1);
+    background-color: #ffffff;
 }
 
 .header-container {
@@ -1452,8 +1449,28 @@ img {
 
     /* Page Hero Mobile Scaling */
     .page-hero {
-        height: 400px;
-        min-height: 400px;
+        height: auto;
+        min-height: 550px;
+        padding: 120px 0 60px;
+        display: flex;
+        align-items: center;
+    }
+
+    .page-hero-content img {
+        max-width: 300px !important;
+        height: auto !important;
+        margin-bottom: 1.5rem !important;
+    }
+
+    .page-hero-content {
+        padding: 2.5rem 1.5rem !important;
+        background: rgba(0, 33, 71, 0.25) !important;
+        backdrop-filter: blur(10px) !important;
+        -webkit-backdrop-filter: blur(10px) !important;
+        border-radius: 24px !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        width: 90% !important;
+        margin: 0 auto !important;
     }
 
     .page-hero-content h1 {
@@ -1465,9 +1482,22 @@ img {
     }
 
     /* Responsive Elements Scaling */
+    .hero-content {
+        padding: 2.5rem 1.5rem !important;
+        background: rgba(0, 33, 71, 0.25) !important;
+        backdrop-filter: blur(10px) !important;
+        -webkit-backdrop-filter: blur(10px) !important;
+        border-radius: 24px !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        width: 90% !important;
+        margin: 0 auto 2rem !important;
+        text-align: center;
+    }
+
     .hero-content h1 {
         font-size: 2.5rem;
         line-height: 1.2;
+        margin-top: 0;
     }
 
     .hero-content p {
@@ -1508,11 +1538,12 @@ img {
 
     .card-content {
         padding: 1.8rem !important;
-        border-radius: 12px !important;
+        border-radius: 24px !important;
         max-width: 100% !important;
-        background: rgba(0, 33, 71, 0.8) !important;
-        /* Solid background for readability */
-        backdrop-filter: blur(10px) !important;
+        background: rgba(0, 33, 71, 0.25) !important;
+        backdrop-filter: blur(4px) !important;
+        -webkit-backdrop-filter: blur(4px) !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
         margin-bottom: 0 !important;
     }
 
