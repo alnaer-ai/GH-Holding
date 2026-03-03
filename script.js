@@ -17,6 +17,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const navLinks = mainNav.querySelectorAll('a');
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
+                // If it's a mobile dropdown toggle, don't close the main menu
+                if (window.innerWidth <= 768 && link.parentElement.classList.contains('has-dropdown')) {
+                    return;
+                }
+
                 if (mainNav.classList.contains('active')) {
                     mainNav.classList.remove('active');
                     menuToggle.classList.remove('active');
